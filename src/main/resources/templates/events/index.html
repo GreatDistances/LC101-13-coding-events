@@ -5,11 +5,17 @@
 
 <header th:replace="fragments :: header"></header>
 
-<ul>
-    <th:block th:each="event : ${events}">
-        <li th:text="${event}"></li>
+<table>
+    <tr th:block th:each="event : ${events}">
+        <td th:text="${event.key}">Event Name: </td>
+        <td th:text="${event.value}">Event Description: </td>
+        <td th:replace="fragments :: address"></td>
     </th:block>
-</ul>
+    </tr>
+</table>
+
+
+
 
 </body>
 </html>
