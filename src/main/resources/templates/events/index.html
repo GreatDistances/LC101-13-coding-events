@@ -1,25 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head th:replace="fragments :: head">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
 <body class="container">
-<h1>Coding Events</h1>
 
-<nav th:replace="fragments :: navigation"></nav>
+<header th:replace="fragments :: header"></header>
 
 <table class="table table-striped">
+    <thead>
     <tr>
-        <th>Event ID</th>
-        <th>Event Name</th>
-        <th>Event Description</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
     </tr>
+    </thead>
     <tr th:each="event : ${events}">
-        <td th:text="${event.getId()}"></td>
-        <td th:text="${event.getName()}"></td> <!-- Thymeleaf can use event.name instead of event.getName() without a compiler error -->
-        <td th:text="${event.getDescription()}"></td>
+        <td th:text="${event.id}"></td>
+        <td th:text="${event.name}"></td>
+        <td th:text="${event.description}"></td>
     </tr>
 </table>
 
-</ul>
 </body>
 </html>

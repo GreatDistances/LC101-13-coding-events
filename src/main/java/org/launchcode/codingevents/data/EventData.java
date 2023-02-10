@@ -8,26 +8,22 @@ import java.util.Map;
 
 public class EventData {
 
-    // need a place to put events (Event class)
-    private final static Map<Integer, Event> allEvents = new HashMap<>();
+    private static final Map<Integer, Event> events = new HashMap<>();
 
-    // get all events
-    public static Collection<Event> getAllEvents() {
-        return allEvents.values();
+    public static Collection<Event> getAll() {
+        return events.values();
     }
 
-    // get a single event
-    public static Event getEventById(int eventId) {
-        return allEvents.get(eventId);
+    public static Event getById(int id) {
+        return events.get(id);
     }
 
-    // add an event
-    public static void addEvent(Event event) {
-        allEvents.put(event.getId(), event);
+    public static void add(Event event) {
+        events.put(event.getId(), event);
     }
 
-    // remove an event
-    public static void removeEvent(int eventId) {
-        allEvents.remove(eventId);
+    public static void remove(int id) {
+        events.remove(id);
     }
+
 }

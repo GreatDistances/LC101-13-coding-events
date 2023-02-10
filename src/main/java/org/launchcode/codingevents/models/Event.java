@@ -1,5 +1,7 @@
 package org.launchcode.codingevents.models;
 
+import java.util.Objects;
+
 public class Event {
 
     private int id;
@@ -15,20 +17,20 @@ public class Event {
         nextId++;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getId() {
@@ -44,14 +46,12 @@ public class Event {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Event event = (Event) o;
-
         return id == event.id;
     }
 
     @Override
     public int hashCode() {
-        return id;
+        return Objects.hash(id);
     }
 }
