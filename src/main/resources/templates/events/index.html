@@ -7,10 +7,19 @@
 
 <nav th:replace="fragments :: navigation"></nav>
 
-<ul>
-    <th:block th:each="event : ${events}">
-        <li th:text="${event}"></li>
-    </th:block>
+<table class="table table-striped">
+    <tr>
+        <th>Event ID</th>
+        <th>Event Name</th>
+        <th>Event Description</th>
+    </tr>
+    <tr th:each="event : ${events}">
+        <td th:text="${event.getId()}"></td>
+        <td th:text="${event.getName()}"></td> <!-- Thymeleaf can use event.name instead of event.getName() without a compiler error -->
+        <td th:text="${event.getDescription()}"></td>
+    </tr>
+</table>
+
 </ul>
 </body>
 </html>
