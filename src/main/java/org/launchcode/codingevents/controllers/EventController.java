@@ -25,17 +25,19 @@ public class EventController {
     @GetMapping("create")
     public String displayCreateEventForm(Model model) {
         model.addAttribute("title", "Create Event");
+        model.addAttribute(new Event());
         return "events/create";
     }
 
     @PostMapping("create")
     public String processCreateEventForm(@ModelAttribute @Valid Event newEvent, Errors errors, Model model) {
         if (errors.hasErrors()) {
-            model.addAttribute("errorMsg", "Bad data!");
+            model.addAttribute("title","Create Event");
             return "events/create";
         }
         EventData.add(newEvent);
         return "redirect:";
+        //return "events/index";
     }
 
     @GetMapping("delete")
@@ -54,6 +56,7 @@ public class EventController {
             }
         }
         return "redirect:";
+        //return "events/index";
     }
 
     @GetMapping("edit/{eventId}")
